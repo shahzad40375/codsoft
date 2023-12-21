@@ -1,0 +1,43 @@
+def simple_chatbot(user_input, user_name):
+    # Define predefined rules and responses
+    greetings = ["hi", "hello", "hey"]
+    farewells = ["bye", "goodbye"]
+    gratitude = ["thank you", "thanks"]
+    weather_query = ["weather"]
+    joke_query = ["joke"]
+    about_you_query = ["how about you"]
+    hobbies_query = ["hobbies", "interests"]
+
+    # Check user input against rules and provide a response
+    if any(word in user_input.lower() for word in greetings):
+        return f"Hello {user_name}! How can I help you?"
+    elif any(word in user_input.lower() for word in farewells):
+        return f"Goodbye {user_name}! Have a great day!"
+    elif any(word in user_input.lower() for word in gratitude):
+        return f"You're welcome, {user_name}! If you have more questions, feel free to ask."
+    elif any(word in user_input.lower() for word in weather_query):
+        return "I'm sorry, I don't have real-time information. You can check a weather website for that."
+    elif any(word in user_input.lower() for word in joke_query):
+        return "Why don't scientists trust atoms? Because they make up everything!"
+    elif any(word in user_input.lower() for word in hobbies_query):
+        return f"I'm just a program, so I don't have hobbies. But I'm here to chat with you, {user_name}!"
+    elif any(word in user_input.lower() for word in about_you_query):
+        return "I'm just a computer program, so I don't have feelings, but I'm here to assist you!"
+
+    # If no match is found, provide a generic response
+    return f"I'm sorry, {user_name}, I didn't understand that. Can you please ask me something else?"
+
+# Simple interactive loop for the chatbot
+print("Welcome to the Simple Chatbot!")
+
+user_name = input("What's your name? ")
+
+while True:
+    user_input = input("You: ")
+    
+    if user_input.lower() in ['exit', 'quit', 'bye']:
+        print(f"Goodbye {user_name}! Have a great day!")
+        break
+
+    response = simple_chatbot(user_input, user_name)
+    print("Chatbot:", response)
